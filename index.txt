@@ -2,28 +2,28 @@ vCard - Personal Portfolio
 
 # sidebar
 
-alt = Richard hanrick
-Richard hanrick
-Web developer
+alt = Luca Antonioli
+Luca Antonioli
+Game Designer & Programmer
 
 Show Contacts
 
 Email
-richard@example.com
+programmatore.unity@gmail.com
 
 Phone
-+1 (213) 352-2795
++39 351 6661072
 
 Birthday
-June 23, 1982
+May, 1995
 
 Location
-Sacramento, California, USA
+Torino, Italia
 
 # navbar
 
 About
-Resume
+CV
 Portfolio
 Blog
 Contact
