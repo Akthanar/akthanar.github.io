@@ -27,11 +27,17 @@ const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalText = document.querySelector("[data-modal-text]");
 
-// modal toggle function
+
+
+
+
+// funzione modal toggle per i testimonial
 const testimonialsModalFunc = function () {
   modalContainer.classList.toggle("active");
   overlay.classList.toggle("active");
 }
+
+
 
 // add click event to all modal items
 for (let i = 0; i < testimonialsItem.length; i++) {
@@ -55,6 +61,145 @@ overlay.addEventListener("click", testimonialsModalFunc);
 
 
 
+
+
+
+
+
+
+
+/*
+// Ottieni il riferimento al canvas
+var canvas = document.getElementById("gameCanvas");
+var gl = canvas.getContext("webgl");
+
+if (!gl) {
+    console.error("Impossibile inizializzare WebGL. Il tuo browser potrebbe non supportarlo.");
+}
+
+// Definisci i vertici del quadrato
+var vertices = [
+     0.5,  0.5,
+    -0.5,  0.5,
+     0.5, -0.5,
+    -0.5, -0.5
+];
+
+// Crea un buffer per i vertici
+var vertexBuffer = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+
+// Definisci i vertici come attributi del programma di shader
+var vertexShaderSource = `
+    attribute vec2 aPosition;
+    void main() {
+        gl_Position = vec4(aPosition, 0.0, 1.0);
+    }
+`;
+
+var fragmentShaderSource = `
+    precision mediump float;
+    void main() {
+        gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0); // Rosso
+    }
+`;
+
+// Crea i programmi di shader
+var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+gl.shaderSource(vertexShader, vertexShaderSource);
+gl.compileShader(vertexShader);
+
+var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+gl.shaderSource(fragmentShader, fragmentShaderSource);
+gl.compileShader(fragmentShader);
+
+var shaderProgram = gl.createProgram();
+gl.attachShader(shaderProgram, vertexShader);
+gl.attachShader(shaderProgram, fragmentShader);
+gl.linkProgram(shaderProgram);
+gl.useProgram(shaderProgram);
+
+// Ottieni l'indice dell'attributo per la posizione
+var positionAttributeLocation = gl.getAttribLocation(shaderProgram, "aPosition");
+
+// Attiva l'attributo per la posizione
+gl.enableVertexAttribArray(positionAttributeLocation);
+
+// Specifica come estrarre i dati dal buffer e li associa all'attributo
+gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+// Disegna il quadrato
+gl.clearColor(0.0, 0.0, 0.0, 1.0);
+gl.clear(gl.COLOR_BUFFER_BIT);
+gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+*/
+
+
+
+
+
+
+
+// Variabili per il portafoglio e il riquadro modale
+const portfolioModal = document.querySelector("[data-portfolio-modal]");
+const portfolioOverlay = document.querySelector("[data-portfolio-overlay]");
+// Seleziona tutti gli elementi che hanno l'attributo data-testimonials-item
+const portfolioItems = document.querySelectorAll("[data-portfolio-item]");
+const projectItems = document.querySelectorAll(".project-item");
+
+projectItems.forEach(item => {
+  item.addEventListener("click", function () {
+    // Estrai l'ID del modale dal data-target dell'elemento del progetto
+    const modalId = this.getAttribute("data-target");
+    
+    // Seleziona il modale corrispondente utilizzando l'ID
+    const modalContainer = document.getElementById(modalId);
+    
+    // Esegui le azioni necessarie per popolare il modale con le informazioni del progetto
+    const title = this.querySelector(".project-title").textContent;
+    const category = this.querySelector(".project-category").textContent;
+    const imageSrc = this.querySelector("img").getAttribute("src");
+    
+    // Popola il modale con le informazioni del progetto
+    modalContainer.innerHTML = `
+      <div class="overlay" data-overlay></div>
+      <section class="project-modal">
+        <button class="modal-close-btn" data-modal-close-btn>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <div class="modal-img-wrapper">
+          <img src="${imageSrc}" alt="${title}" data-modal-img>
+        </div>
+        <div class="modal-content">
+          <h4 class="h3 modal-title" data-modal-title>${title}</h4>
+          <p class="project-category">${category}</p>
+          <!-- Aggiungi altri dettagli del progetto qui se necessario -->
+        </div>
+      </section>
+    `;
+    
+    // Mostra il modale del progetto
+    portfolioModalFunc();
+  });
+});
+
+
+
+// Funzione per mostrare/nascondere il riquadro modale
+const portfolioModalFunc = function () {
+  portfolioModal.classList.toggle("active");
+  portfolioOverlay.classList.toggle("active");
+}
+
+
+
+
+
+
+
 // custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
@@ -75,6 +220,11 @@ for (let i = 0; i < selectItems.length; i++) {
   });
 }
 
+
+
+
+
+
 // filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
@@ -89,10 +239,10 @@ const filterFunc = function (selectedValue) {
     } else {
       filterItems[i].classList.remove("active");
     }
-
   }
-
 }
+
+
 
 // add event in all filter button items for large screen
 let lastClickedBtn = filterBtn[0];
@@ -110,7 +260,6 @@ for (let i = 0; i < filterBtn.length; i++) {
     lastClickedBtn = this;
 
   });
-
 }
 
 
@@ -136,9 +285,13 @@ for (let i = 0; i < formInputs.length; i++) {
 
 
 
+
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
+
+
+
 
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {

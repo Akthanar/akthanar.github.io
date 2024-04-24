@@ -66,108 +66,72 @@
       <div class="sidebar-info_more">
 
         <div class="separator"></div>
-
         <ul class="contacts-list">
 
-          <li class="contact-item">
 
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
+          <!-- Contatto discord nella sidebar sinistra -->
+          <script src="main/sidebar/contact-box/discord.js"></script>
 
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
+          <!-- Contatto telegram nella sidebar sinistra -->
+          <script src="main/sidebar/contact-box/telegram.js"></script>
 
-              <a
-                href="mailto:programmatore.unity@gmail.com"
-                class="contact-link"
-                style="color: rgb(156, 255, 161); text-decoration: none; font-size: 14px;">
-                  click here
-              </a>
-            </div>
-          </li>
+          <!-- Contatto email nella sidebar sinistra -->
+          <script src="main/sidebar/contact-box/email.js"></script>
+          
+          <!-- Data di nascita nella sidebar sinistra -->
+          <script src="main/sidebar/contact-box/birthday.js"></script>
+
+          <!-- Residenza nella sidebar sinistra -->
+          <script src="main/sidebar/contact-box/location.js"></script>
 
 
-
-          <li class="contact-item">
-
+          <!-- _____________________ -->
+          <!-- Esempio versione HTML -->
+          <!-- _____________________ -->
+          
+          <!-- <li class="contact-item">
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
+              <p class="contact-title">TELEGRAM</p>
               <a
-                href="https://t.me/ProgrammatoreUnityBot"
-                target="_blank"
-                rel="noopener noreferrer"
-                style="color: rgb(161, 233, 252); text-decoration: none; font-size: 14px;">
-                  click here
-              </a>
-            </div>
-          </li>
+              href="https://t.me/Akthanar"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="color: rgb(161, 233, 252); text-decoration: none; font-size: 14px;">
+              Akthanar
+            </a>
+          </div>
+        </li> -->
+        <!-- ____________________________________________________________ -->
 
-
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1995-05-28">May, 1995</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Torino, Italia</address>
-            </div>
-
-          </li>
 
         </ul>
-
         <div class="separator"></div>
-
         <ul class="social-list">
 
+          
+          <!-- Icona social Github -->          
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
+            <a href="https://github.com/HighshoreGames" class="social-link">
+              <ion-icon name="logo-github" style="color: rgb(0, 0, 0); background-color: white; border-radius: 50%;"></ion-icon>
             </a>
           </li>
 
+ 
+          <!-- Icona social Itch.io -->
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
+            <a href="https://programmatore-unity.itch.io" class="social-link">
+              <img src="./assets/images/itch-io-icon-red.png" width="20">
+              <!--<ion-icon name="game-controller-outline"></ion-icon>-->
             </a>
           </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
+          
 
         </ul>
-
       </div>
-
     </aside>
-
 
 
 
@@ -178,6 +142,10 @@
 
     <div class="main-content">
 
+
+
+
+
       <!--
         - #NAVBAR
       -->
@@ -187,7 +155,11 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>Project</button>
           </li>
 
           <li class="navbar-item">
@@ -214,60 +186,100 @@
 
 
 
+
+
+
+
       <!--
         - #ABOUT
       -->
 
-      <article class="about  active" data-page="about">
+      <article class="about" data-page="about">
 
         <header>
           <h2 class="h2 article-title">About me</h2>
         </header>
 
-        <button onclick="toggleSection()">Mostra/Nascondi Sezione</button>
-
+        
         <script>
           var currentSection = 1; // Stato iniziale, mostra la prima sezione
-      
+          
           function toggleSection() {
             var section1 = document.querySelector('.about-text-1');
             var section2 = document.querySelector('.about-text-2');
-      
+            var switchButton = document.getElementById('switchButton');
+            
+            
             if (currentSection === 1) {
               section1.style.display = "none";
               section2.style.display = "block";
+              switchButton.innerHTML = "Switch to professional info";
+              // cambia colore di switchButton
+              switchButton.style.color = "rgb(201, 209, 130)";
+              switchButton.style.textDecoration = "underline";
               currentSection = 2;
             } else {
               section1.style.display = "block";
               section2.style.display = "none";
+              switchButton.innerHTML = "Switch to personal info";
+              // cambia colore di switchButton
+              switchButton.style.color = "rgb(78, 101, 228)";
+              switchButton.style.textDecoration = "underline";
               currentSection = 1;
             }
           }
         </script>
-      
+
+
+
         <section class="about-text-1">
-          <p style="color: rgb(252, 255, 74); text-decoration: none;">
-            Hi, I'm Luca, AKA: Pingu!<br>
+          <br>
+          <h2 class="h4" style="color: rgb(78, 101, 228);">
+            Personal Background:
+          </h2>
+          <br>
+          <p style="color: rgb(206, 207, 240); text-decoration: none;">
+            Hi, I'm Luca,<br>
+            an Italian freelance developer, specialized in videogames.<br>
+            I attended a Game Design course for three years at Event Horizon School,<br>
+            followed by another two years of programming on Unity, at same school.<br>
             <br>
-            I'm an Italian videogame developer.<br>
-            I studied Game Design for three years and Game Programming for two years at Event Horizon School.<br>
-            Then I continued to study independently, focusing on Unity tools programming.<br>
+            After those years of study, I kept studying both subjects independently,<br>
+            gaining experience with small personal projects and other people's projects.<br>
+            I also partecipated in several Game Jams (GGJ and various Itch.io's jams).<br>
+            Currently, I'm specializing in tool programming and editor scripting on Unity.<br>
             <br>
-            <!-- I have attended every Global Game Jam since 2017.<br> -->
-            I have worked on several small projects, both as a programmer and as a designer.<br>
-            Currently I work as a freelancer (mainly as a programmer, but if necessary also as a designer),<br>
-            I also just do consultancy, but I also like to occasionally support small unpaid projects and<br>
-            creating free assets and templates that can help game designers and novice programmers.<br>
-            <br><br>
-          </p>
+          </p>          
         </section>
-      
+
+
         <section class="about-text-2" style="display: none;">
-          <p style="color: rgb(252, 255, 74); text-decoration: none;">
-            Sezione 2:
-            Descrizione alternativa o testo per la seconda sezione.
+          <br>
+          <h2 class="h4" style="color: rgb(201, 209, 130);">
+            Professional Approach:
+          </h2>
+          <br>
+          <p style="color: rgb(209, 209, 183); text-decoration: none;">
+            I primarily work as gameplay / tools programmer or project manager.<br>
+            I also consider positions as a game designer (not the only or the main)<br>
+            and also project manager, for relatively small projects.<br>
+            <br>
+            Occasionally, I enjoy collaborating on small free projects as support for<br>
+            programmers or as consultant in game design and project management.<br>
+            <br>
+            I also develop custom tools, for free use, not for sale, for small teams,<br>
+            with the possibility of purchasing the license and the source code.<br>
+            <br>
           </p>
         </section>
+
+
+        <button onclick="toggleSection()"
+          style="color: rgb(78, 101, 228); font-weight: bold;"
+          id="switchButton" text>
+          Switch to professional info
+        </button>
+        <br><br>
 
         <!--
           - service
@@ -276,9 +288,7 @@
         <section class="service">
 
           <h3 class="h3 service-title">What i'm doing</h3>
-
           <ul class="service-list">
-
             <li class="service-item">
 
               <div class="service-icon-box">
@@ -319,7 +329,7 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
+                <h4 class="h4 service-item-title">Mobile and Windows apps</h4>
 
                 <p class="service-item-text">
                   Professional development of applications for iOS and Android.
@@ -356,13 +366,8 @@
 
         
         <section class="testimonials">
-
           <h3 class="h3 testimonials-title">Collaborators</h3>
-
           <ul class="testimonials-list has-scrollbar">
-
-
-
 
 
             <li class="testimonials-item">
@@ -594,6 +599,218 @@
 
 
 
+      
+
+
+      
+      <!--
+        - #PROJECT
+      -->
+
+      <article class="project  active" data-page="project">
+
+        <header>
+          <h2 class="h2 article-title">Project</h2>
+        </header>
+
+         
+
+        <!--
+          - collaborators
+        -->
+
+        
+        
+        
+        <section class="testimonials">
+          
+          <div style="display: flex; justify-content: center;">
+          <h3 class="h5 testimonials-title">THIS SECTION IS RECOMMENDED TO VIEWING IT FROM PC AND TO KEEP THE PAGE ZOOM AT 100%</h3>
+        </div>
+          <!-- <ul class="testimonials-list has-scrollbar"> -->
+  
+          <ul class="service-list">
+            <!-- <li class="service-item"> -->
+  
+
+
+
+                <iframe src="game/index.html" width="835" height="614" frameborder="0"></iframe>
+              <!-- <canvas id="gameCanvas" width="800" height="600"></canvas> -->
+
+
+        <!--
+
+          <li class="testimonials-item">
+            <div class="content-card" data-testimonials-item>
+              
+              <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Valeria Moscatelli" width="60" data-testimonials-avatar>
+                </figure>
+                
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Valeria Moscatelli</h4>
+                
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    I am Valeria Moscatelli, a 27yo concept artist currently living in Turin.
+                    <br><br>
+                    My passion for art led me to dedicate three years of my life
+                    to the Event Horizon School, where I had the opportunity to explore
+                    the world of video games and study concept art.
+                    <br><br>
+                    Among the various styles I encountered, I discovered that the cartoon style
+                    is the one I am most inclined towards.
+                    <br><br>
+                    <a href="https://drive.google.com/file/d/1ySM4BKcinfZtwntBaG1cWZIfzlYKKu5a/view?usp=sharing" target="_blank" style="color: rgb(252, 255, 74); text-decoration: none;">Portfolio</a>
+                  </p>
+                  
+                  <time datetime="2023-12-22">22 December 2023</time>
+                  
+                </div>
+                
+              </div>
+            </li>
+            
+
+            
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Valeria Moscatelli" width="60" data-testimonials-avatar>
+                </figure>
+                
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Valeria Moscatelli</h4>
+                
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    I am Valeria Moscatelli, a 27yo concept artist currently living in Turin.
+                    <br><br>
+                    My passion for art led me to dedicate three years of my life
+                    to the Event Horizon School, where I had the opportunity to explore
+                    the world of video games and study concept art.
+                    <br><br>
+                    Among the various styles I encountered, I discovered that the cartoon style
+                    is the one I am most inclined towards.
+                    <br><br>
+                    <a href="https://drive.google.com/file/d/1ySM4BKcinfZtwntBaG1cWZIfzlYKKu5a/view?usp=sharing" target="_blank" style="color: rgb(252, 255, 74); text-decoration: none;">Portfolio</a>
+                  </p>
+                  
+                  <time datetime="2023-12-22">22 December 2023</time>
+                  
+                </div>
+                
+              </div>
+            </li>
+            
+            
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Valeria Moscatelli" width="60" data-testimonials-avatar>
+                </figure>
+                
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Valeria Moscatelli</h4>
+                
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    I am Valeria Moscatelli, a 27yo concept artist currently living in Turin.
+                    <br><br>
+                    My passion for art led me to dedicate three years of my life
+                    to the Event Horizon School, where I had the opportunity to explore
+                    the world of video games and study concept art.
+                    <br><br>
+                    Among the various styles I encountered, I discovered that the cartoon style
+                    is the one I am most inclined towards.
+                    <br><br>
+                    <a href="https://drive.google.com/file/d/1ySM4BKcinfZtwntBaG1cWZIfzlYKKu5a/view?usp=sharing" target="_blank" style="color: rgb(252, 255, 74); text-decoration: none;">Portfolio</a>
+                  </p>
+                  
+                  <time datetime="2023-12-22">22 December 2023</time>
+                  
+                </div>
+                
+              </div>
+            </li>
+
+            
+            
+            
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-2.png" alt="Guglielmo Ceparano" width="60" data-testimonials-avatar>
+                </figure>
+                
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Guglielmo Ceparano</h4>
+                
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Concept Artist and Illustrator.
+                  </p>
+                  
+                  <time datetime="2023-12-22">22 December 2023</time>
+                  
+                </div>
+              </div>
+            </li>  
+          </ul>
+        </section>
+        
+        
+      -->      
+
+        
+        
+        
+        <!--
+          - testimonials modal
+        -->
+<!--
+
+  <div class="modal-container" data-modal-container>
+    
+          <div class="overlay" data-overlay></div>
+          
+          <section class="testimonials-modal">
+            
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+            
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Nome Cognome" width="80" data-modal-img>
+              </figure>
+              
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+            
+            <div class="modal-content">
+              
+              <h4 class="h3 modal-title" data-modal-title>Nome Cognome</h4>
+              
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+            </div>
+          </section>
+        -->
+
+        </div>
+      </article>
+
+
+
+
       <!--
         - #RESUME
       -->
@@ -791,8 +1008,32 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <!--
-        - #PORTFOLIO
+        - #PORTFOLIO / TOOLS
       -->
 
       <article class="tools" data-page="tools">
@@ -802,6 +1043,14 @@
         </header>
 
         <section class="projects">
+
+
+
+
+          <!--
+            - #PORTFOLIO / TOOLS
+          -->
+
 
           <ul class="filter-list">
 
@@ -1026,6 +1275,32 @@
         </section>
 
       </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1277,6 +1552,11 @@
         </section>
 
       </article>
+
+
+
+
+      
 
     </div>
 
