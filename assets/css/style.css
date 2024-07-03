@@ -773,8 +773,6 @@ main {
 
 
 
-
-
 /*-----------------------------------*\
   #RESUME
 \*-----------------------------------*/
@@ -1455,6 +1453,18 @@ textarea.form-input::-webkit-resizer { display: none; }
   .testimonials-text {
     line-clamp: 2;
     -webkit-line-clamp: 2;
+  }
+
+  
+  .testimonial-separator {
+    text-align: center;
+    color: #ffffff;
+  }
+  .testimonial-bio-female {
+    color: #fdd8f5;
+  }
+  .testimonial-bio-male {
+    color: #c7e6ff;
   }
 
   /* testimonials modal */
